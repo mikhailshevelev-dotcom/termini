@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Памятка: словарь терминов при оформлении сделки</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap">
+<style>
+:root{
+  --bg:#f3f4f6; --surface:#ffffff; --ink:#29303E; --muted:#5d6577; --line:#dfe2e8;
+  --head:#29303E; --head-ink:#ffffff; --accent:#951B81; --accent-ink:#ffffff; --mark:#f3d3ee;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#29303E;--surface:#323a4a;--ink:#f1f2f5;--muted:#aab1c0;--line:#444d60;--head:#231F20;--mark:#6a2a62;}
+}
+:root[data-theme="dark"]{--bg:#29303E;--surface:#323a4a;--ink:#f1f2f5;--muted:#aab1c0;--line:#444d60;--head:#231F20;--mark:#6a2a62;}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Circe','Strana Font','Manrope',system-ui,sans-serif;font-size:16px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--head);z-index:20}
+header{background:var(--head);color:var(--head-ink);padding:20px 16px 16px;position:sticky;top:env(safe-area-inset-top,0px);z-index:10}
+.wrap{max-width:760px;margin:0 auto}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+h1{font-family:'Strana Font','Manrope',sans-serif;font-weight:700;font-size:22px;line-height:1.2;margin:0}
+.sub{margin:2px 0 0;color:#c4c9d4;font-size:14px}
+.theme{background:none;border:1px solid #ffffff55;color:var(--head-ink);border-radius:8px;width:40px;height:40px;font-size:18px;cursor:pointer}
+.search{position:relative;margin-top:14px}
+.search input{width:100%;height:48px;border-radius:10px;border:2px solid transparent;background:#fff;color:#29303E;font:inherit;font-size:16px;padding:0 44px 0 14px}
+.search input:focus{outline:none;border-color:var(--accent)}
+.clear{position:absolute;right:4px;top:4px;width:40px;height:40px;border:0;background:none;color:#5d6577;font-size:22px;cursor:pointer;display:none}
+.tabs{display:flex;gap:8px;margin-top:12px;overflow-x:auto}
+.tab{flex:0 0 auto;border:1px solid #ffffff55;background:none;color:var(--head-ink);font:inherit;font-weight:700;font-size:14px;padding:7px 14px;border-radius:20px;cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+main{padding:16px}
+.count{color:var(--muted);font-size:14px;margin:0 0 10px}
+.letters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.letters button{min-width:34px;height:34px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;font:inherit;font-weight:700;font-size:14px;cursor:pointer}
+.letters button[aria-pressed="true"]{background:var(--head);color:#fff;border-color:var(--head)}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:8px;display:grid;grid-template-columns:minmax(64px,auto) 1fr;gap:4px 14px;align-items:baseline;width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer}
+.abbr{font-family:'Strana Font','Manrope',sans-serif;font-weight:800;font-size:18px;color:var(--accent);min-width:64px}
+:root[data-theme="dark"] .abbr{color:#e08fd3}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .abbr{color:#e08fd3}}
+.def{margin:0}
+.item:focus-visible,.tab:focus-visible,.letters button:focus-visible,.theme:focus-visible,.q:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.item.copied{border-color:var(--accent)}
+.item .hint{grid-column:2;font-size:12px;color:var(--accent);display:none}
+.item.copied .hint{display:block}
+.faq{background:var(--surface);border:1px solid var(--line);border-radius:10px;margin-bottom:8px;overflow:hidden}
+.q{width:100%;text-align:left;background:none;border:0;color:inherit;font:inherit;font-weight:700;padding:14px;display:flex;justify-content:space-between;gap:12px;cursor:pointer}
+.q span:last-child{color:var(--accent);font-size:20px;line-height:1}
+.a{display:none;padding:0 14px 14px;color:var(--ink)}
+.faq.open .a{display:block}
+.sec{font-family:'Strana Font','Manrope',sans-serif;font-size:15px;font-weight:700;color:var(--muted);margin:18px 0 8px}
+mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
+.empty{text-align:center;color:var(--muted);padding:36px 12px}
+footer{max-width:760px;margin:0 auto;padding:8px 16px 28px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="top">
+    <div><h1>Словарь терминов</h1><p class="sub">Памятка по оформлению сделки</p></div>
+    <button class="theme" id="theme" aria-label="Сменить тему">◐</button>
+  </div>
+  <div class="search">
+    <input id="q" type="search" placeholder="Найти термин, аббревиатуру или вопрос" autocomplete="off" aria-label="Поиск">
+    <button class="clear" id="clr" aria-label="Очистить поиск">×</button>
+  </div>
+  <div class="tabs" role="group" aria-label="Раздел">
+    <button class="tab" data-t="all" aria-pressed="true">Всё</button>
+    <button class="tab" data-t="terms" aria-pressed="false">Аббревиатуры</button>
+    <button class="tab" data-t="faq" aria-pressed="false">Вопросы и ответы</button>
+  </div>
+</div></header>
+<main class="wrap">
+  <div class="letters" id="letters"></div>
+  <p class="count" id="count"></p>
+  <div id="list"></div>
+</main>
+<footer>Нажмите на термин, чтобы скопировать его расшифровку. Клавиша «/» переводит в поиск.</footer>
+<script>
+var T=[["ГП","Гарантийное письмо"],["ГОСТ","Государственный стандарт"],["ГК РФ","Гражданский кодекс Российской Федерации"],["ДБО","Договор банковского обслуживания"],["ДДУ","Договор долевого участия"],["ДКП","Договор купли-продажи"],["ДК","ДомКлик"],["ДС","Дополнительное соглашение"],["ЕГРН","Единый государственный реестр недвижимости"],["КУВД","Книга учёта входящих документов"],["КД","Кредитный договор"],["МСК","Материнский семейный капитал"],["ОС","Обратная связь"],["ООО","Общество с ограниченной ответственностью"],["ОГРН","Основной государственный регистрационный номер"],["ПВ","Первоначальный взнос"],["ПЗУ","План застройки участка (или Схема планировочной организации земельного участка)"],["ПСК","Полная стоимость кредита"],["ПДП","Полное досрочное погашение"],["ПД","Проектная декларация"],["РнС","Разрешение на строительство"],["РВИ","Росвоенипотека"],["РР","Росреестр"],["СП","Свод правил"],["СБР","Сервис безопасных расчетов"],["СЭР","Сервис электронной регистрации"],["СОПД","Согласие на обработку персональных данных"],["СФР","Социальный фонд России"],["СЗ","Специализированный застройщик"],["СК","Страховая компания"],["УК","Управляющая компания"],["ФЗ","Федеральный закон"],["ЧДП","Частично досрочное погашение"],["ЭР","Электронная регистрация"],["ЭТК","Электронная трудовая книжка"],["ЭЦП","Электронная цифровая подпись"],["МФЦ","Многофункциональный центр предоставления государственных и муниципальных услуг"],["НДС","Налог на добавленную стоимость"],["БТИ","Бюро технической инвентаризации"],["АО","Акционерное общество"]];
+var F=[["Что такое полная стоимость кредита (ПСК)?","Это максимальная сумма, которую заёмщик должен вернуть по данному кредиту. Она складывается из суммы кредита, процентной ставки, срока кредита и дополнительных расходов по оформлению кредита, например: страхование жизни и объекта, оформление отчёта об оценке, оформление расчётов по сделке и т. д."],["Можно ли делать ЧДП/ПДП?","Во всех банках есть возможность частично досрочного или полного досрочного погашения кредита. Частично досрочное погашение возможно с сокращением ежемесячного платежа или срока кредита. Сумма ЧДП идёт в погашение основного долга."]];
+var $=function(i){return document.getElementById(i)};
+var tab="all",letter="",open={};
+function norm(s){return s.toLowerCase().replace(/ё/g,"е")}
+function esc(s){return s.replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c]})}
+function hl(s,q){
+  if(!q)return esc(s);
+  var n=norm(s),i=n.indexOf(q);
+  if(i<0)return esc(s);
+  return esc(s.slice(0,i))+"<mark>"+esc(s.slice(i,i+q.length))+"</mark>"+hl(s.slice(i+q.length),q);
+}
+var L=[];T.forEach(function(t){var c=t[0][0];if(L.indexOf(c)<0)L.push(c)});
+L.sort(function(a,b){return a.localeCompare(b,"ru")});
+function drawLetters(){
+  var h='<button data-l="" aria-pressed="'+(letter===""?"true":"false")+'">Все</button>';
+  L.forEach(function(c){h+='<button data-l="'+c+'" aria-pressed="'+(letter===c?"true":"false")+'">'+c+'</button>'});
+  $("letters").innerHTML=h;
+  $("letters").style.display=(tab==="faq")?"none":"flex";
+}
+function render(){
+  var q=norm($("q").value.trim());
+  $("clr").style.display=q?"block":"none";
+  var h="",nt=0,nf=0;
+  if(tab!=="faq"){
+    var ts=T.filter(function(t){
+      if(letter&&t[0][0]!==letter)return false;
+      return !q||norm(t[0]).indexOf(q)>=0||norm(t[1]).indexOf(q)>=0;
+    });
+    nt=ts.length;
+    if(tab==="all"&&nt)h+='<p class="sec">Аббревиатуры</p>';
+    ts.forEach(function(t){
+      h+='<button class="item" data-c="'+esc(t[0]+" — "+t[1]).replace(/"/g,"&quot;")+'"><span class="abbr">'+hl(t[0],q)+'</span><span class="def">'+hl(t[1],q)+'</span><span class="hint">Скопировано</span></button>';
+    });
+  }
+  if(tab!=="terms"&&!letter){
+    var fs=[];
+    F.forEach(function(f,i){if(!q||norm(f[0]).indexOf(q)>=0||norm(f[1]).indexOf(q)>=0)fs.push(i)});
+    nf=fs.length;
+    if(tab==="all"&&nf)h+='<p class="sec">Вопросы и ответы</p>';
+    fs.forEach(function(i){
+      var o=open[i]||(q&&true);
+      h+='<div class="faq'+(o?" open":"")+'"><button class="q" data-f="'+i+'" aria-expanded="'+(o?"true":"false")+'"><span>'+hl(F[i][0],q)+'</span><span>'+(o?"−":"+")+'</span></button><div class="a">'+hl(F[i][1],q)+'</div></div>';
+    });
+  }
+  if(!nt&&!nf)h='<p class="empty">Ничего не найдено. Попробуйте другое слово или сократите запрос.</p>';
+  $("list").innerHTML=h;
+  $("count").textContent=(nt||nf)?("Найдено: "+(nt+nf)):"";
+}
+$("q").addEventListener("input",render);
+$("clr").onclick=function(){$("q").value="";render();$("q").focus()};
+document.querySelector(".tabs").onclick=function(e){
+  var b=e.target.closest(".tab");if(!b)return;
+  tab=b.dataset.t;
+  document.querySelectorAll(".tab").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});
+  if(tab==="faq")letter="";
+  drawLetters();render();
+};
+$("letters").onclick=function(e){
+  var b=e.target.closest("button");if(!b)return;
+  letter=b.dataset.l;drawLetters();render();
+};
+$("list").onclick=function(e){
+  var f=e.target.closest(".q");
+  if(f){var i=f.dataset.f;open[i]=!open[i];render();return}
+  var it=e.target.closest(".item");
+  if(it){
+    var txt=it.dataset.c;
+    try{navigator.clipboard.writeText(txt)}catch(x){}
+    it.classList.add("copied");
+    setTimeout(function(){it.classList.remove("copied")},1400);
+  }
+};
+document.addEventListener("keydown",function(e){
+  if(e.key==="/"&&document.activeElement!==$("q")){e.preventDefault();$("q").focus()}
+  if(e.key==="Escape"&&$("q").value){$("q").value="";render()}
+});
+$("theme").onclick=function(){
+  var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;
+  r.dataset.theme=dark?"light":"dark";
+};
+drawLetters();render();
+</script>
+</body>
+</html>
